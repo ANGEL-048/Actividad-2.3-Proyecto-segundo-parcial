@@ -29,16 +29,6 @@ class Encryptor:
             file.write(datos_encriptados)
         os.remove(file_name)
         
-
-
-        """with open(file_name, 'rb') as fo:
-            plaintext = fo.read()
-        enc = self.encrypt(plaintext, self.key)
-        print(enc)
-        with open(file_name + ".aes", 'wb') as fo:
-            fo.write(enc)
-        os.remove(file_name)"""
-
     def decrypt(self, ciphertext, key):
         iv = ciphertext[:AES.block_size]
         cipher = AES.new(key, AES.MODE_CBC, iv)
@@ -52,14 +42,6 @@ class Encryptor:
         with open(file_name[:-4], 'wb') as file:
             file.write(datos)
         os.remove(file_name)
-        """
-        with open(file_name, 'rb') as fo:
-            ciphertext = fo.read()
-        dec = self.decrypt(ciphertext, self.key)
-        with open(file_name[:-4], 'wb') as fo:
-            fo.write(dec)
-        os.remove(file_name)
-        """
 
     def getAllFiles(self):
         dir_path = os.path.dirname(os.path.realpath(__file__))
@@ -93,15 +75,6 @@ if os.path.isfile('C:/Users/Luis/Desktop/aes password/AES-256/hola.txt.aes'):
         os.rename("C:/Users/Luis/Desktop/aes password/AES-256/hola.txt","C:/Users/Luis/Desktop/aes password/AES-256/hola_descifrado.txt")
         #secundaria 93
         break
-        """
-        p = ''
-        with open("C:/Users/Luis/Desktop/aes password/AES-256/hola.txt", "r") as f:
-            p = f.readlines()
-            print (p)
-        if p[0] == False:
-            aes.encrypt_file("C:/Users/Luis/Desktop/aes password/AES-256/hola.txt")
-            break
-        """
     while True:
         clear()
         opcion = int(input(
